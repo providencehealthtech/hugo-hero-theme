@@ -41,19 +41,11 @@
           font-weight: bold;
           color: #ffffff;
         }
-        &.zerostatic {
-          a {
-            color: #ffffff;
-          }
-        }
       }
       @include media-breakpoint-up(sm) {
         li {
-          display: inline-block;
-          margin-left: 10px;
-          &:first-of-type {
-            margin-left: 0;
-          }
+          display: block;
+          padding-top: 0.75rem;
         }
       }
     }

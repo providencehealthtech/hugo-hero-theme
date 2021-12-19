@@ -12,19 +12,25 @@
     </div>
   </div>
 </div>
-<div class="container">
+<div class="container mb-3">
   <div class="row">
-    <div class="col-12 col-md-8">
+    <div class="col-12 col-md-6 order-1 order-md-0 mt-5 mt-md-0">
       {{ .Content }}
       <ul>
-        <li><strong>Phone: </strong>{{ .Site.Data.contact.phone }}</li>
-        <li><strong>Email: </strong><a href="mailto:{{ .Site.Data.contact.email }}">
-            {{ .Site.Data.contact.email }}</a></li>
+        <li><strong>Phone </strong><a href="tel:{{ .Site.Data.contact.phone }}">{{ .Site.Data.contact.phone }}</a></li>
+        <li><strong>Fax </strong>{{ .Site.Data.contact.fax }}</li>
+        <li class="py-3"><strong>Email </strong>
+          <ul>
+            <li><a href="mailto:{{ .Site.Data.contact.email.general }}" class="btn btn-outline-primary btn-block my-3">{{ .Site.Data.contact.email.general }}</a></li>
+            <li><a href="mailto:{{ .Site.Data.contact.email.sales }}" class="btn btn-outline-primary btn-block my-3">{{ .Site.Data.contact.email.sales }}</a></li>
+            <li><a href="mailto:{{ .Site.Data.contact.email.support }}" class="btn btn-outline-primary btn-block my-3">{{ .Site.Data.contact.email.support }}</a></li>
+          </ul>
+        </li>
         {{ if .Site.Data.contact.address }}
-        <li style="white-space: pre-wrap;"><strong>Address: </strong><br>{{ .Site.Data.contact.address }}</li>
+        <li style="white-space: pre-wrap;"><strong>Mailing Address </strong><br>{{ .Site.Data.contact.address }}</li>
         {{ end }}
       </ul>
-      <h4 class="mt-4">Business Hours</h4>
+      {{/*  <h4 class="mt-4">Business Hours</h4>
       <table class="table table-sm opening-hours-table">
         {{ range .Site.Data.contact.hours }}
         <tr>
@@ -34,7 +40,30 @@
           <td class="closes">{{ .close }}</td>
         </tr>
         {{ end }}
-      </table>
+      </table>  */}}
+    </div>
+    <div class="col-12 col-md-6 order-0 order-md-1">
+      <h4>Request More Information</h4>
+      <form id="fs-frm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/f/mlezevoa" method="post">
+        <fieldset id="fs-frm-inputs">
+          <label for="full-name" class="form-label">Full Name</label>
+          <input type="text" class="form-control" name="name" id="full-name" placeholder="First and Last" required="">
+          <label for="email-address" class="form-label mt-2">Email Address</label>
+          <input type="email" class="form-control" name="_replyto" id="email-address" placeholder="email@domain.com" required="">
+          <label for="solution" class="form-label mt-2">Solution</label>
+          <select name="solution" id="solution" class="form-control">
+            <option value="">-- Select a Solution You Are Interested In --</option>
+            <option value="school">School Nursing</option>
+            <option value="veterinary">Veterinary Medicine</option>
+            <option value="global-health">Global Health Initiative</option>
+            <option value="something-else">Something Else</option>
+          </select>
+          <label for="message" class="form-label mt-2">Message</label>
+          <textarea rows="5" class="form-control" name="message" id="message" placeholder="Your Message" required=""></textarea>
+          <input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
+        </fieldset>
+        <input type="submit" value="Submit" class="btn btn-primary mt-2">
+      </form>
     </div>
   </div>
 </div>

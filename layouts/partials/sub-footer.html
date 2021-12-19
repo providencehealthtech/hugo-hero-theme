@@ -4,12 +4,17 @@
       <div class="col-12">
         <div class="sub-footer-inner">
           <ul>
-            <li><strong>Phone: </strong>{{ .Site.Data.contact.phone }}</li>
-            <li><strong>Email: </strong><a href="mailto:{{ .Site.Data.contact.email }}">
-                {{ .Site.Data.contact.email }}</a></li>
+            <li><strong>Phone</strong><br><a href="tel:{{ .Site.Data.contact.phone }}">{{ .Site.Data.contact.phone }}</a></li>
+            <li><strong>Fax</strong><br>{{ .Site.Data.contact.fax }}</li>
+            <li><strong>Web</strong><br><a href="{{ .Site.Data.contact.web }}">{{ .Site.Data.contact.web }}</a></li>
           </ul>
           <ul>
-            <li class="zerostatic"><a href="https://www.zerostatic.io">www.zerostatic.io</a></li>
+            <li><strong>General Inquiries</strong><br><a href="tel:{{ .Site.Data.contact.email.general }}">{{ .Site.Data.contact.email.sales }}</a></li>
+            <li><strong>Sales</strong><br><a href="tel:{{ .Site.Data.contact.email.sales }}">{{ .Site.Data.contact.email.sales }}</a></li>
+            <li><strong>Support</strong><br><a href="tel:{{ .Site.Data.contact.email.support }}">{{ .Site.Data.contact.email.support }}</a></li>
+          </ul>
+          <ul>
+            <li  style="white-space: pre-wrap;">{{ .Site.Data.contact.address }}</li>
           </ul>
         </div>
       </div>

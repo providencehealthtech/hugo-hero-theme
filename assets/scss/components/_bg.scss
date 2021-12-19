@@ -22,3 +22,12 @@
 .bg-secondary {
   background-color: $secondary;
 }
+.bg-transparent-0 {
+  background-color: hsla(0, 100%, 100%, 0);
+}
+.bg-transparent-90 {
+  background-color: hsla(0, 100%, 100%, 0.9);
+}
+.bg-transparent-100 {
+  background-color: hsla(0, 100%, 100%, 0);
+}
