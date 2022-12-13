@@ -1,12 +1,12 @@
 .header {
-  color: $primary;
-  background-color: #ffffff;
+  color: $white;
+  background-color: $primary;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 1px 15px rgba(50, 50, 93, 0.2);
-  height: 60px;
-  .container {
+  height: 110px;
+  .container-fluid {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -17,10 +17,10 @@
     width: 100%;
   }
 }
-// .lock-scroll {
-//   .header {
-//     &.header-absolute {
-//       position: static;
-//     }
-//   }
-// }
+.lock-scroll {
+  .header {
+    &.header-absolute {
+      position: static;
+    }
+  }
+}

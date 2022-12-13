@@ -90,27 +90,6 @@
 //   }
 // }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Montserrat:ital,wght@0,200;0,400;0,700;1,400&display=swap');
-
-body {
-    font-family: 'Inter';
-    font-weight: 300;
-}
-
-.hero-image .hero-text h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 200;
-
-    strong {
-        font-weight: 700;
-    }
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-}
-
 .hero-image .hero-text p {
     font-size: 1rem;
 }
