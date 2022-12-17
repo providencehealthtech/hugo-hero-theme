@@ -1,5 +1,11 @@
 // Font
 
+// Variables
+:root {
+    --navbar-height: 110px;
+    --home-hero-height: calc(100vh - 110px);
+}
+
 // Bootstrap
 @import 'bootstrap/functions';
 @import 'bootstrap-variables';

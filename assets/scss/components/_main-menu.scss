@@ -19,6 +19,18 @@
           color: #ffffff;
           text-decoration: none;
         }
+        &.cta {
+          $bg: #fdd023;
+          background: $bg;
+          color: darken($bg, 35%);
+          border-radius: 25px;
+          text-transform: uppercase;
+          font-weight: bold;
+          font-size: .80em;
+          &:hover {
+            background: darken($bg, 10%);
+          }
+        }
       }
       &.active {
         > a {

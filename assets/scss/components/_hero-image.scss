@@ -59,6 +59,9 @@
 .hero-image-fullscreen {
   height: 100vh;
 }
+.hero-image-fullscreen-less-navbar {
+  height: var(--home-hero-height);
+}
 .hero-image-setheight {
   height: 460px;
 }

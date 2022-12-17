@@ -46,7 +46,6 @@
         }
       }
       &.copyright {
-        font-weight: bold;
         color: lighten($secondary, 50%);
         display: none;
         @include media-breakpoint-up(md) {
@@ -72,5 +71,10 @@
         }
       }
     }
+  }
+
+  .copyright span {
+    padding: 10px 8px 10px 8px;
+    height: 40px;
   }
 }
