@@ -3,7 +3,8 @@
   background-repeat: no-repeat;
   // background-position: top center;
   background-blend-mode: overlay;
-  background-color: $primary;
+  background-color: rgba(0,0,0,0.4);
+  background-position: center;
   height: 400px;
   position: relative;
   padding-top: 60px;

@@ -1,14 +1,14 @@
-<div class="service service-summary">
+<div class="card">
   {{ if .Params.icon }}
-  <div class="service-image">
-    <img src="{{ .Site.BaseURL }}{{ .Params.icon }}"/>
+  <div class="card-header">
+    <img src="{{ .Site.BaseURL }}{{ .Params.icon }}" class="service-image" style="max-height: 50px;">
   </div>
   {{ end }}
-  <div class="service-content">
-    <h2 class="service-title">
-      <a href="{{ .Permalink }}">{{ .Title }}</a>
-    </h2>
-    
-    {{ .Summary | truncate 120 "..." }}
+  <div class="card-body">
+    <h5 class="card-title">{{ .Title }}</h5>
+    <div class="card-text">{{ .Summary | truncate 240 "..." }}</div>
+    <div class="card-text pt-2">
+      <a href="{{ .Permalink }}" class="btn btn-block btn-primary">Learn more</a>
+    </div>
   </div>
 </div>

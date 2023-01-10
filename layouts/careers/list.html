@@ -18,8 +18,21 @@
     <div class="col-12 col-md-6 offset-md-3 mb-2 ">
       <article>
         <header>
-          <h2>{{ .Title }}</h2>
+          <h2><a href="{{ .Permalink}}">{{ .Title }}</a></h2>
         </header>
+        {{ with .Params.tags }}
+            {{ range . }}
+                <span class="badge badge-primary">{{ . }}</span>
+            {{ end }}
+        {{ end }}
+        <ul class="pt-1">
+            {{ with .Params.hours }}
+                <li>Hours - {{ . }}</li>
+            {{ end }}
+            {{ with .Params.location }}
+                <li>Location - {{ . }}</li>
+            {{ end }}
+        </ul>
         <p>{{ .Summary }}</p>
       </article>
     </div>
