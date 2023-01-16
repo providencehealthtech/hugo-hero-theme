@@ -36,7 +36,7 @@
 </div>
 {{ end }}
 
-{{ $solutions := where (where .Site.RegularPages "Type" "solutions") ".Params.featured" true }}
+{{ $solutions := where (where .Site.RegularPages "Type" "services") ".Params.featured" true }}
 {{if gt (len $solutions) 0}}
 <div class="container pt-8 pb-8 pb-md-14 pt-md-14">
   <div class="row justify-content-start">
@@ -44,7 +44,7 @@
       <h2 class="text-center mb-3">Our Industry Solutions</h2>
     </div>
     {{ range first 6 (sort $solutions ".Params.weight") }}
-    <div class="col-12 col-md-6 mb-1">
+    <div class="col-sm-12 col-md-4 mb-1">
       {{ .Render "summary" }}
     </div>
     {{ end }}
@@ -63,6 +63,21 @@
         <h2>{{ .Title }}</h2>
         <p>{{ .Content }}</p>
         <a class="button button-white" href="{{ .Params.buttonLink | relURL }}">{{ .Params.button }}</a>
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}
+
+{{ range first 3 (after 2 $reusablePages) }}
+{{ $supressTitle := default false .Params.supressTitle }}
+<div id="home" class="strip bg-cover bg-position-top bg-overlay" style='background-image: url("{{ .Params.background | relURL }}");'>
+  <div class="container pt-4 pb-4 pb-md-4 pt-md-4">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 text-center">
+        {{ if (eq $supressTitle false) }}<h2>{{ .Title }}</h2>{{ end }}
+        <p class="lead">{{ .Content }}</p>
+        <a class="button button-primary" href="{{ .Params.buttonLink | relURL }}">{{ .Params.button }}</a>
       </div>
     </div>
   </div>

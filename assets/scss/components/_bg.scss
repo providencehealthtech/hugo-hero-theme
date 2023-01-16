@@ -22,15 +22,19 @@
 .bg-secondary {
   background-color: $secondary;
 }
-.bg-transparent-0 {
-  background-color: hsla(0, 100%, 100%, 0);
+
+@for $counter from 0 through 100 {
+  $alpha: $counter / 100;
+  .bg-transparent-#{$counter} {
+    background-color: rgba(0,0,0,$alpha);
+  }
 }
-.bg-transparent-40 {
-  background-color: hsla(0, 100%, 100%, 0.4);
-}
-.bg-transparent-90 {
-  background-color: hsla(0, 100%, 100%, 0.9);
-}
-.bg-transparent-100 {
-  background-color: hsla(0, 100%, 100%, 0);
+
+
+// Alpha with a white background
+@for $counter from 0 through 100 {
+  $alpha: $counter / 100;
+  .bg-white-transparent-#{$counter} {
+    background-color: rgba(255,255,255,$alpha);
+  }
 }

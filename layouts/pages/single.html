@@ -3,14 +3,13 @@
 {{ define "header_classes" }}{{ end }}
 
 {{ define "main" }}
-
-<div class="container pt-5">
-    <div class="row">
-        <div class="col-12">
-            <h2>{{ .Title }}</h2>
-            {{ .Content }}
-        </div>
+{{ partial "hero-image-setheight.html" (dict "background" .Params.heroBackground "heading" .Params.heroHeading "subheading" .Params.heroSubHeading "bg_position" "bg-position-center" "content" .)}}
+<div class='strip bg-cover {{ with .Params.bg_classes }}{{ delimit . " " }}{{ end }}' {{ with .Params.background }}style="background-image: url('{{ . | relURL }}');"{{ end }}>
+    <div class="container pt-5">
+      <div class="row">
+        {{ .Content }}
+      </div>
     </div>
-</div>
+  </div>
 
 {{ end }}

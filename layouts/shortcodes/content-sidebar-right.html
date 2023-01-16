@@ -1,0 +1,24 @@
+
+{{ $bundle := .Get 0 }}
+{{ $content := .Get 1 }}
+{{ $sidebar := .Get 2 }}
+{{ $page := .Page.Site.GetPage $bundle }}
+{{ with $page }}
+  {{ $resource := $page.Resources.GetMatch (printf "**%s*" $content ) }}
+  {{ with $resource }}
+    {{ $supressTitle := default false .Params.supressTitleInBody }}
+    <div class="col-sm-12 col-md-7">
+      {{ if (eq $supressTitle false) }}<h2 class="text-primary text-capitalize">{{ .Title }}</h2>{{ end }}
+      {{ .Content }}
+      {{ if .Params.button }}
+        <a class="button" href="{{ .Params.buttonLink | relURL }}">{{ .Params.button }}</a>
+      {{ end }}
+    </div>
+    {{ end }}
+    {{ $sidebarResource := $page.Resources.GetMatch (printf "**%s*" $sidebar ) }}
+    {{ with $sidebarResource }}
+      <div class="col-sm-12 col-md-5">
+        {{ .Content }}
+      </div>
+    {{ end }}
+  {{ end }}
