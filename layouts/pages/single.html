@@ -6,7 +6,7 @@
 {{ partial "hero-image-setheight.html" (dict "background" .Params.heroBackground "heading" .Params.heroHeading "subheading" .Params.heroSubHeading "bg_position" "bg-position-center" "content" .)}}
 <div class='strip bg-cover {{ with .Params.bg_classes }}{{ delimit . " " }}{{ end }}' {{ with .Params.background }}style="background-image: url('{{ . | relURL }}');"{{ end }}>
     <div class="container pt-5">
-      <div class="row">
+      <div class="row content">
         {{ .Content }}
       </div>
     </div>

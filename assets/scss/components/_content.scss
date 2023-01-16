@@ -46,4 +46,7 @@
       font-weight: $font-weight-thin;
     }
   }
+  img {
+    @include img-fluid;
+  }
 }

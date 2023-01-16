@@ -74,9 +74,9 @@
 <div id="home" class="strip bg-cover bg-position-top bg-overlay" style='background-image: url("{{ .Params.background | relURL }}");'>
   <div class="container pt-4 pb-4 pb-md-4 pt-md-4">
     <div class="row justify-content-center">
-      <div class="col-12 col-md-8 text-center">
+      <div class="col-12 col-md-8 text-center content">
         {{ if (eq $supressTitle false) }}<h2>{{ .Title }}</h2>{{ end }}
-        <p class="lead">{{ .Content }}</p>
+        {{ .Content }}
         <a class="button button-primary" href="{{ .Params.buttonLink | relURL }}">{{ .Params.button }}</a>
       </div>
     </div>
