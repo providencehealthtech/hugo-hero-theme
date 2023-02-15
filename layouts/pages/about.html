@@ -10,7 +10,7 @@
 {{ $subpages := sort $subpages ".Params.weight" }}
 {{ range $subpages }}
 {{ $container := default "container" .Params.fluid }}
-<div class='strip bg-cover {{ delimit .Params.bg_classes " " }}' {{ with .Params.background }}style="background-image: url('{{ . | relURL }}');"{{ end }}>
+<div class='strip bg-cover {{ with .Params.bg_classes }}{{ delimit . " " }}{{ end }}' {{ with .Params.background }}style="background-image: url('{{ . | relURL }}');"{{ end }}>
   <div class="{{ $container }} py-3">
     <div class="row">
       <div class="col-12 {{ if eq .Params.align "right" }}offset-md-6{{ end }}">
@@ -25,6 +25,27 @@
 </div>
 {{ end }}
 
+{{ $headless := .Site.GetPage "/pages/leadership" }}
+{{ $subpages := $headless.Resources.ByType "page" }}
+{{ $subpages := sort $subpages ".Params.weight" }}
+{{ range $subpages }}
+<div class='strip bg-cover'>
+  <div class="container py-3">
+    <div class="row">
+      <div class="col-lg-3 col-sm-12">
+        {{ with .Params.headshot }}
+          <img src="{{ . | absURL }}" alt="Headshot" class="img-fluid">
+        {{ end }}
+      </div>
+      <div class="col-lg-9 col-sm-12">
+        <h2 class="text-primary text-capitalize">{{ .Title }}</h2>
+        <strong>{{ .Params.position }}</strong>
+        {{ .Content }}
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}
 {{ .Content }}
 
 {{ end }}
