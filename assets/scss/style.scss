@@ -1,10 +1,6 @@
 // Font
 
-// Variables
-:root {
-    --navbar-height: 110px;
-    --home-hero-height: calc(100vh - 110px);
-}
+
 
 // Bootstrap
 @import 'bootstrap/functions';
@@ -75,6 +71,13 @@
 @import 'pages/work/work-summary';
 @import 'pages/work/page-work-single';
 
+// Variables
+:root {
+    --navbar-height: 110px;
+    --home-hero-height: calc(100vh - 110px);
+    --primary-purple: var(--primary);
+}
+
 // Display breakpoints for DEV
 // body:after {
 //   color: #000000;
@@ -98,6 +101,11 @@
 
 .hero-image .hero-text p {
     font-size: 1rem;
+}
+
+::selection {
+    background-color: var(--primary-purple);
+    color: var(--white);
 }
 
 img[src$='#headshot'] {

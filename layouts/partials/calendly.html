@@ -1,0 +1,13 @@
+{{ with $.Site.Params.calendly }}
+<script>
+    {{ range $.Site.Params.calendly }}
+        let calendly = document.getElementById('{{ .identifier }}');
+        calendly.addEventListener('click', () => {
+            Calendly.initPopupWidget({
+            url: 'https://calendly.com/{{ .url }}'
+            });
+            return false;
+        });
+    {{ end }}
+</script>
+{{ end }}
