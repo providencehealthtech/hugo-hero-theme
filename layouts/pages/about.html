@@ -10,11 +10,14 @@
 {{ $subpages := sort $subpages ".Params.weight" }}
 {{ range $subpages }}
 {{ $container := default "container" .Params.fluid }}
+
+<div class="bg-light p-5 text-center">
+  <h1>{{ .Title }}</h1>
+</div>
 <div class='strip bg-cover {{ with .Params.bg_classes }}{{ delimit . " " }}{{ end }}' {{ with .Params.background }}style="background-image: url('{{ . | relURL }}');"{{ end }}>
   <div class="{{ $container }} py-3">
     <div class="row">
-      <div class="col-12 {{ if eq .Params.align "right" }}offset-md-6{{ end }}">
-        <h2 class="text-primary text-capitalize">{{ .Title }}</h2>
+      <div class="col-12 col-lg-6 offset-lg-3 lead {{ if eq .Params.align "right" }}offset-md-6{{ end }}">
         {{ .Content }}
         {{ if .Params.button }}
           <a class="button" href="{{ .Params.buttonLink | relURL }}">{{ .Params.button }}</a>
@@ -25,6 +28,10 @@
 </div>
 {{ end }}
 
+<div class="bg-light p-5 text-center">
+  <h1>Executive Leadership</h1>
+</div>
+
 {{ $headless := .Site.GetPage "/pages/leadership" }}
 {{ $subpages := $headless.Resources.ByType "page" }}
 {{ $subpages := sort $subpages ".Params.weight" }}
@@ -32,15 +39,17 @@
 <div class='strip bg-cover'>
   <div class="container py-3">
     <div class="row">
-      <div class="col-lg-3 col-sm-12">
+      <div class="col-lg-3 offset-lg-1 col-sm-12">
         {{ with .Params.headshot }}
-          <img src="{{ . | absURL }}" alt="Headshot" class="img-fluid">
+          <img src="{{ . | absURL }}" alt="Headshot" class="img-fluid rounded-circle border border-primary">
         {{ end }}
       </div>
-      <div class="col-lg-9 col-sm-12">
-        <h2 class="text-primary text-capitalize">{{ .Title }}</h2>
-        <strong>{{ .Params.position }}</strong>
-        {{ .Content }}
+      <div class="col-lg-7 col-sm-12">
+        <span class="badge bg-primary text-white p-1 font-weight-bold mb-2">{{ .Params.position }}</span>
+        <h2 class="text-primary text-uppercase">{{ .Title }}</h2>
+        <div class="lead">
+          {{ .Content }}
+        </div>
       </div>
     </div>
   </div>

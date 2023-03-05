@@ -1,14 +1,14 @@
-<div class="card">
-  {{ if .Params.icon }}
-  <div class="card-header">
-    <img src="{{ .Site.BaseURL }}{{ .Params.icon }}" class="service-image" style="max-height: 50px;">
+<section class="my-15 mx-0 px-0">
+  <div class="container d-flex">
+      {{ if .Params.icon }}
+      <div class="col align-self-center text-center">
+        <img src="{{ .Site.BaseURL }}{{ .Params.icon }}" class="service-image img-fluid" style="max-height: 100px;">
+      </div>
+      {{ end }}
+      <div class="col">
+        <h2 class="text-primary">{{ .Title }}</h2>
+        <p class="lead">{{ .Summary | truncate 240 "..." }}</p>
+        <a href="{{ .Permalink }}" class="btn btn-block btn-primary">Learn more</a>
+      </div>
   </div>
-  {{ end }}
-  <div class="card-body">
-    <h5 class="card-title">{{ .Title }}</h5>
-    <div class="card-text">{{ .Summary | truncate 240 "..." }}</div>
-    <div class="card-text pt-2">
-      <a href="{{ .Permalink }}" class="btn btn-block btn-primary">Learn more</a>
-    </div>
-  </div>
-</div>
+</section>

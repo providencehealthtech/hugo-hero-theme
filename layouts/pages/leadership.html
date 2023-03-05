@@ -12,10 +12,10 @@
           <img src="{{ .RelPermalink }}" class="img-fluid">
         {{ end }}
         {{ with .Resources.GetMatch "images/headshot.png" }}
-          <img src="{{ .RelPermalink }}" alt="Headshot" class="img-fluid">
+          <img src="{{ .RelPermalink }}" alt="Headshot" class="img-fluid rounded-circle border border-primary">
         {{ end }}
       </div>
-      <div class="col-lg-9 col-sm-12">
+      <div class="col-lg-4 col-sm-12">
         <h2 class="text-primary text-capitalize">{{ .Title }}</h2>
         <strong>{{ .Params.position }}</strong>
         {{ .Content }}
