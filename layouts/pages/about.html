@@ -17,7 +17,7 @@
 <div class='strip bg-cover {{ with .Params.bg_classes }}{{ delimit . " " }}{{ end }}' {{ with .Params.background }}style="background-image: url('{{ . | relURL }}');"{{ end }}>
   <div class="{{ $container }} py-3">
     <div class="row">
-      <div class="col-12 col-lg-6 offset-lg-3 lead {{ if eq .Params.align "right" }}offset-md-6{{ end }}">
+      <div class="col-12 text-center lead {{ if eq .Params.align "right" }}offset-md-6{{ end }}">
         {{ .Content }}
         {{ if .Params.button }}
           <a class="button" href="{{ .Params.buttonLink | relURL }}">{{ .Params.button }}</a>

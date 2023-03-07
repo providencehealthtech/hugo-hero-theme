@@ -9,15 +9,35 @@
     justify-content: flex-start;
     > li {
       list-style: none;
+      position: relative;
       > a {
         padding: 10px 14px 10px 14px;
         display: inline-block;
         text-decoration: none;
         color: $white;
         &:hover {
-          background: $primary;
+          // background: lighten($primary, 10%);
           color: #ffffff;
           text-decoration: none;
+          // animation: bottom-border 1s ease-out forwards;
+          
+        }
+        &:not(&.cta):hover::after {
+          transform: scaleX(1);
+          transform-origin: 50% 50%;
+        }
+        &::after {
+          display: block;
+          content: "";
+          margin-top: 10px;
+          border-bottom: 2px solid #fdd023;
+          transform: scaleX(0);
+          transform-origin: 50% 50%;
+          bottom: 0;
+          left: 0;
+          position: absolute;
+          width: 100%;
+          transition: transform .3s ease-out;
         }
         &.cta {
           $bg: #fdd023;

@@ -1,0 +1,31 @@
+@keyframes bottom-border {
+    from {
+        border-bottom: 0px solid white;
+    }
+
+    to {
+        border-bottom: 5px solid white;
+    }
+}
+
+@keyframes homepage-hero {
+    from {
+        opacity: 0;
+        transform: translateY(15%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+@keyframes slide-right {
+    from {
+        right: 0;
+    }
+
+    to {
+        right: 100%;
+    }
+}
