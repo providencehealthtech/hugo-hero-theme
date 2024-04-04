@@ -11,8 +11,9 @@
           </ul>
           {{ end }}
           <ul class="footer-menu">
-            <li><a href="{{ .Site.BaseURL }}">Home</a></li>
-            <li><a href="{{ .Site.BaseURL }}contact">Contact</a></li>
+            {{ range .Site.Menus.footer}}
+              <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+            {{ end }}
             <li><a href="https://www.iubenda.com/privacy-policy/93881337" class="iubenda-black iubenda-noiframe iubenda-embed iubenda-noiframe " title="Privacy Policy ">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script></li>
             <li class="copyright"><span>&copy; {{ now.Format "2006" }} {{.Site.Title}}</span></li>
           </ul>

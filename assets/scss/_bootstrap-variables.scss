@@ -21,6 +21,8 @@ $primary: hsl(267, 46%, 19%);
 $secondary: #43454d;
 $yellow: #F7D148;
 
+// $light: #495057;
+
 // Links
 $link-color: $primary;
 $link-decoration: none;
@@ -29,14 +31,18 @@ $link-hover-decoration: underline;
 
 // Fonts
 $font-family-base: neue-haas-grotesk-text, helvetica, "Helvetica Neue", Arial, sans-serif;
-$font-family-heading: "futura-pt", Arial, sans-serif;
-$font-size-base: 1rem; // Assumes the browser default, typically `16px`
+$font-family-heading: Metropolis, Arial, sans-serif;
+$font-size-base: 1.25rem; // Assumes the browser default, typically `16px`
 $font-weight-thin: 200;
 $font-weight-light: 300;
 $font-weight-normal: 400;
 $font-weight-bold: 700;
 $font-weight-base: $font-weight-normal;
-$line-height-base: 1.45;
+$line-height-base: 1.4;
+
+:root {
+  --font-size-base: 1rem;
+}
 
 $headings-font-weight: 700;
 $headings-font-family: $font-family-heading;

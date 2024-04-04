@@ -1,0 +1,23 @@
+{{ define "body_classes" }}bg-light{{ end }}
+{{ define "main" }}
+
+<header class="w-100 bg-primary py-5 text-white">
+    <div class="container text-center">
+        <h1>Newsroom</h1>
+    </div>
+</header>
+
+<main class="container py-5" style="max-width: 800px;">
+
+{{ range .Pages }}
+    <article class="px-4 py-5 bg-white">
+        <header>
+            <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+            <small>{{ .Params.date | time.Format ":date_full" }} | {{ .Params.location }}</small>
+        </header>
+        {{ .Summary }}
+    </article>
+{{ end }}
+</main>
+{{ end }}
+

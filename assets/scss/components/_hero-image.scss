@@ -100,3 +100,9 @@ html {
   //   animation-timing-function: ease-out;
   // }
 }
+
+.page-home {
+  .hero-image-set-height {
+    min-height: 700px !important;
+  }
+}

@@ -1,0 +1,17 @@
+{{ $bundle := default .Page (.Get "bundle") }}
+{{ $match := default "*" (.Get "match") }}
+
+{{ $pages := $bundle.Resources.Match $match }}
+{{ $pages := sort $pages ".Params.weight" }}
+
+<div>
+{{ range $pages }}
+    <div class="d-flex">
+        <i class="fa fa-lg {{ .Params.icon }}">{{ .Params.icon }}</i>
+        <div>
+            <h3>{{ .Title }}</h3>
+            {{ .Content }}
+        </div>
+    </div>
+{{ end }}
+</div>

@@ -1,0 +1,11 @@
+<section class="bg-light py-5">
+    <div class="container">
+        {{ $image := .Resources.GetMatch "images/ukraine.png"}}
+        {{ with $image }}
+        <img src="{{ .|absURL }}" alt="">{{ end }}
+        <div>
+            <h1>{{ .Title }}</h1>
+            {{ .Content }}
+        </div>
+    </div>
+</section>

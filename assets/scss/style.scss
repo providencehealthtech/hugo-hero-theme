@@ -10,7 +10,7 @@
 @import 'bootstrap/root';
 @import 'bootstrap/reboot';
 @import 'bootstrap/grid';
-@import 'bootstrap/type';
+// @import 'bootstrap/type';
 @import 'bootstrap/tables';
 @import "bootstrap/images";
 // @import "bootstrap/code";
@@ -57,6 +57,7 @@
 @import 'components/hamburger';
 @import 'components/buttons';
 @import 'components/title';
+@import 'components/type';
 @import 'components/content';
 @import 'components/intro';
 @import 'components/strip';
@@ -72,11 +73,14 @@
 @import 'pages/work/work-summary';
 @import 'pages/work/page-work-single';
 
+@import url('_type.css');
+
 // Variables
 :root {
     --navbar-height: 110px;
     --home-hero-height: calc(100vh - 110px);
     --primary-purple: var(--primary);
+    --ff-metropolis: Metropolis, Arial, Helvetica, sans-serif;
 }
 
 $hamburger-active-layer-color: $white;
@@ -118,4 +122,12 @@ img[src$='#headshot'] {
 
 .rounded-xl {
     border-radius: 3.3em;
+}
+
+.btn {
+    white-space: normal;
+}
+
+.main-menu {
+    font-family: var(--ff-metropolis);
 }

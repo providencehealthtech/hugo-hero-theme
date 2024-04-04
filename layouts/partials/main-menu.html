@@ -1,22 +1,22 @@
 <div id="main-menu" class="main-menu">
   <ul>
     {{ $currentPage := . }}
-    {{ range .Site.Menus.main }}
+    {{- range .Site.Menus.main -}}
     <li class="menu-item-{{ .Name | lower }}{{ if $currentPage.IsMenuCurrent "main" . }} active{{ end }} mx-1">
       <a href="{{.URL}}" {{ with .Identifier }}id="{{ . }}"{{ end }} {{ with .Params.classes }}class="{{ delimit . " " }}"{{ end }}>
-        {{ .Pre }}
+        {{- .Pre -}}
         <span>{{ .Name }}</span>
       </a>
       {{ if .HasChildren }}
         <ul>
-          {{ range .Children }}
+          {{ range .Children -}}
             <li class="">
               <a href="{{ .URL }}">{{ .Name }}</a>
             </li>
-          {{ end }}
+          {{- end }}
         </ul>
       {{ end }}
     </li>
-    {{end}}
+    {{- end}}
   </ul>
 </div>

@@ -17,17 +17,19 @@
 
 {{ define "main" }}
 
-{{ partial "hero-image-split.html" (dict "image" .Params.image "background" .Params.heroBackground "heading" (.Params.heroHeading | safeHTML) "subheading" .Params.heroSubHeading "class" "hero-homepage" "content" .)}}
+{{ partial "homepage/hero.html" . }}
 
-{{ $headless := .Site.GetPage "/homepage" }}
-{{ $reusablePages := $headless.Resources.ByType "page" }}
+{{ $headless := .Site.GetPage "homepage" }}
+{{ $reusablePages := $headless.Pages }}
 {{ $reusablePages := sort $reusablePages ".Params.weight" }}
-{{ range first 1 $reusablePages }}
-<div id="home" class='strip bg-cover {{ delimit .Params.bg_classes " " }} bg-overlay' style="background-image: url('{{ .Params.background | relURL }}');">
-  <div class="container py-10">
+
+{{/*  Prioritize the top-most reusable page  */}}
+{{ with index $reusablePages 0 }}
+<div id="home" class='strip {{ delimit .Params.bg_classes " " }}'>
+  <div class="container py-5">
     <div class="row">
-      <div class="col-12 text-center">
-        <h2 class="text-primary text-capitalize font-weight-bold">{{ .Title }}</h2>
+      <div class="col-12">
+        <h2 class="text-capitalize">{{ .Title }}</h2>
         <span class="lead">{{ .Content }}</span>
         <a class="button" {{ with .Params.buttonClasses }}class="{{ delimit . " " }}"{{ end }} href="{{ .Params.buttonLink | relURL }}">{{ .Params.button }}</a>
       </div>
@@ -36,25 +38,15 @@
 </div>
 {{ end }}
 
-{{ $solutions := where (where .Site.RegularPages "Type" "services") ".Params.featured" true }}
-{{if gt (len $solutions) 0}}
-  <div class="container pt-10 pt-md-14" id="solutions">
-    <h2 class="text-center mb-3 text-capitalize">Our Industry Services</h2>
-  </div>
-  {{ $solutions := where site.RegularPages "Type" "services" }}
-  {{ range $k, $_ := first 6 (sort $solutions ".Params.weight") }}
-    {{ .Store.Set "index" (add $k 1) }}
-    {{ .Render "summary"}}
-  {{ end }}
-{{end}}
+{{ partial "homepage/services_list.html" . }}
 
 {{ range first 1 (after 1 $reusablePages) }}
 <div id="home" class="strip bg-primary bg-cover bg-position-top bg-overlay" style='background-image: url("{{ .Params.background | relURL }}");'>
   <div class="container pt-8 pb-8 pb-md-12 pt-md-12">
     <div class="row justify-content-center">
       <div class="col-12 col-md-8 text-center text-white">
-        <h2>{{ .Title }}</h2>
-        <p>{{ .Content }}</p>
+        <h2 class="text-white">{{ .Title }}</h2>
+        {{ .Content }}
         <a class="button button-white" href="{{ .Params.buttonLink | relURL }}">{{ .Params.button }}</a>
       </div>
     </div>
@@ -70,7 +62,7 @@
       <div class="col-12 col-md-8 text-center content">
         {{ if (eq $supressTitle false) }}<h2>{{ .Title }}</h2>{{ end }}
         {{ .Content }}
-        <a class="button button-primary" href="{{ .Params.buttonLink | relURL }}">{{ .Params.button }}</a>
+        <a class="btn btn-primary" href="{{ .Params.buttonLink | relURL }}">{{ .Params.button }}</a>
       </div>
     </div>
   </div>

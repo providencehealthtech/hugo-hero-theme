@@ -1,0 +1,15 @@
+<div id="hero" class="py-5 hero-image hero-image-setheight {{ .class}} {{ .bg_position }}" {{ with .background }}style="background-image: url('{{ . | relURL }}')"{{ end}}>
+  <div class="container d-flex flex-column flex-lg-row align-items-center">
+    <div class="text-white">
+      <span class="hero-section">{{ .section }}</span>
+      <h1 class="font-weight-normal display-1 text-white">{{ .heading }}</h1>
+      <p class="lead fs-5">{{ .subheading }}</p>
+    </div>
+    {{ if .image }}
+    <div class="">
+      <img src="{{ .image|absURL }}" alt="" class="img-fluid d-none d-md-inline-block">
+    </div>
+    {{ end }}
+  </div>
+</div>
+  

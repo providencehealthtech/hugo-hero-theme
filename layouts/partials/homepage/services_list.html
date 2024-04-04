@@ -1,0 +1,26 @@
+{{ $solutions := where (where .Site.RegularPages "Type" "services") ".Params.featured" true }}
+{{- if gt (len $solutions) 0 -}}
+  <div class="container pt-10 pt-md-14" id="solutions">
+    <div class="row">
+      <div class="col-sm-12">
+        <h2 class="text-center mb-3 text-capitalize">What We Offer</h2>
+      </div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-2">
+      {{ range $k, $_ := first 6 (sort $solutions ".Params.weight") }}
+        {{ .Store.Set "index" (add $k 1) }}
+        <div class="col mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">{{ .Title }}</h5>
+              <p class="card-text">{{ .Summary }}</p>
+            </div>
+            <div class="card-footer">
+              <a href="{{ .RelPermalink }}" class="btn btn-primary btn-block">Learn More</a>
+            </div>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+{{end}}
