@@ -1,11 +1,11 @@
-<div id="hero" class="py-5 hero-image hero-image-setheight hero-homepage {{ with .Params.heroClass }}{{ . }}{{ end }}" {{ with .Params.heroBackground }}style="background-image: url('{{ .|absURL }}');"{{ end }}>
+<div id="hero" class="pb-0 hero-image hero-homepage {{ with .Params.classes.container }}{{ . }}{{ end }}" {{ with .Params.heroBackground }}style="background-image: url('{{ .|absURL }}');"{{ end }}>
     <div class="container d-flex flex-column flex-lg-row align-items-center">
       <div>
-        <h1 class="font-weight-normal display-1">{{ .Params.heroHeading | safeHTML }}</h1>
+        <h1 class="font-weight-normal display-1 {{ with .Params.classes.heading }}{{ . }}{{ end }}">{{ .Params.heroHeading | safeHTML }}</h1>
         <p class="lead fs-5">{{ .Params.heroSubHeading | safeHTML }}</p>
       </div>
       {{ with .Params.heroImage }}
-      <div class="w-100">
+      <div class="">
         <img src="{{ . | absURL }}" alt="{{ with $.Params.imageAltText }}{{ . }}{{ end }}" class="img-fluid d-none d-md-inline-block">
       </div>
       {{ end }}
