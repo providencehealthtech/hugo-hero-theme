@@ -20,9 +20,7 @@
 {{ partial "homepage/hero.html" . }}
 
 {{ $headless := .Site.GetPage "homepage" }}
-{{ $headless }}
 {{ $reusablePages := $headless.Pages }}
-{{ $reusablePages }}
 {{ $reusablePages := sort $reusablePages ".Params.weight" }}
 
 {{/*  Prioritize the top-most reusable page  */}}
